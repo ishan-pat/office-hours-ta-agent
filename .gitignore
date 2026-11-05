@@ -1,0 +1,10 @@
+.env
+*.env
+__pycache__/
+.pytest_cache/
+ta_queue.jsonl
+eval/results/
+.venv/
+.DS_Store
+submission/
+.benchmarks/

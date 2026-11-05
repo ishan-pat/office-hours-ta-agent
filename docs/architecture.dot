@@ -1,0 +1,27 @@
+digraph G {
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.5, ranksep=0.45, pad=0.2];
+  node  [fontname="Helvetica", fontsize=11, shape=box, style="rounded,filled", fillcolor="#ffffff", color="#555555"];
+  edge  [fontname="Helvetica", fontsize=9.5, color="#555555"];
+
+  student [label="Student question\n(terminal chat)", fillcolor="#e8f0fe"];
+  memory  [label="Conversation memory\nmessages + ids of notes sections retrieved", fillcolor="#f3f3f3", shape=cylinder];
+  claude  [label="Claude (Opus 5.5)\nreads question + history,\npicks the next tool", fillcolor="#fff4e5", penwidth=1.6];
+  tools   [label=<<b>Tools</b> (my Python code)<br/><br/><b>search_notes</b>: BM25 keyword search over<br/>41 sections of 10 course-notes files<br/><br/><b>run_python</b>: checks arithmetic in a<br/>5-second, key-free subprocess>];
+  notes   [label="Course notes\n(markdown)", shape=folder, fillcolor="#f3f3f3"];
+  check   [label="Citation check\n(code, not the model):\nwere all cited sections\nactually retrieved?", shape=diamond, fillcolor="#fde7e9"];
+  answer  [label="Answer + sources\nshown to student", fillcolor="#e6f4ea"];
+  ta      [label="Hand off to human TA\nlogged to TA queue;\nstudent told who follows up", fillcolor="#e6f4ea"];
+
+  student -> claude;
+  memory -> claude [dir=both, style=dashed, label=" history "];
+  claude -> tools [dir=both, label=" calls search_notes /\n run_python;\n result fed back "];
+  notes -> tools [style=dotted, arrowhead=none];
+  claude -> check [label=" submit_answer\n (answer + citations)"];
+  claude -> ta [label=" escalate_to_ta\n (policy question, not in\n notes, wants a person)"];
+  check -> answer [label=" yes"];
+  check -> claude [label="no: bounce back\nwith error ", constraint=false, color="#c5221f", fontcolor="#c5221f"];
+  check -> ta [label=" 2nd bounce", color="#c5221f", fontcolor="#c5221f"];
+  {rank=same; tools; check;}
+  {rank=same; answer; ta; notes;}
+}

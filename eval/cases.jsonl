@@ -1,0 +1,21 @@
+{"id": "reg-l1-l2", "question": "What's the difference between L1 and L2 regularization?", "expect": "answer", "sources": ["03_overfitting_regularization"], "include_any": ["zero"]}
+{"id": "f1-calc", "question": "If my classifier has precision 0.8 and recall 0.5, what's its F1 score?", "expect": "answer", "sources": ["06_classification_metrics"], "include_any": ["0.615", "0.62"], "tool": "run_python"}
+{"id": "test-set-tuning", "question": "Why shouldn't I tune hyperparameters on the test set?", "expect": "answer", "sources": ["04_data_splits"], "include_any": ["optimistic", "leak"]}
+{"id": "kfold", "question": "What is k-fold cross validation?", "expect": "answer", "sources": ["04_data_splits"], "include_any": ["fold"]}
+{"id": "loss-exploding", "question": "My training loss keeps going up instead of down. What should I try first?", "expect": "answer", "sources": ["02_gradient_descent"], "include_any": ["learning rate"]}
+{"id": "gd-two-steps", "question": "Doing gradient descent on f(w) = (w - 3)^2 from w = 0 with learning rate 0.1, what is w after two steps?", "expect": "answer", "sources": ["02_gradient_descent"], "include_any": ["1.08"], "tool": "run_python"}
+{"id": "sigmoid-2", "question": "What is the sigmoid of 2, roughly?", "expect": "answer", "sources": ["05_logistic_regression"], "include_any": ["0.88"], "tool": "run_python"}
+{"id": "accuracy-imbalance", "question": "Why is accuracy a bad metric when my classes are imbalanced?", "expect": "answer", "sources": ["06_classification_metrics"], "include_any": ["imbalanc", "99"]}
+{"id": "gini-calc", "question": "What's the Gini impurity of a node with 30 positive and 10 negative examples?", "expect": "answer", "sources": ["07_decision_trees"], "include_any": ["0.375"], "tool": "run_python"}
+{"id": "forest-vs-tree", "question": "How is a random forest different from one decision tree?", "expect": "answer", "sources": ["07_decision_trees"], "include_any": ["variance", "bootstrap"]}
+{"id": "choose-k", "question": "How do I pick the number of clusters for k-means?", "expect": "answer", "sources": ["08_kmeans"], "include_any": ["elbow", "silhouette"]}
+{"id": "why-activation", "question": "Why do neural networks need activation functions?", "expect": "answer", "sources": ["09_neural_networks"], "include_any": ["linear"]}
+{"id": "softmax", "question": "What does softmax do to a model's outputs?", "expect": "answer", "sources": ["09_neural_networks"], "include_any": ["sum to 1", "sum to one", "sums to 1", "add up to 1", "add up to one"]}
+{"id": "leakage", "question": "What is data leakage and how do I avoid it?", "expect": "answer", "sources": ["04_data_splits"], "include_any": ["training set", "before splitting", "split"]}
+{"id": "r2-zero", "question": "What does an R squared of 0 mean?", "expect": "answer", "sources": ["01_linear_regression"], "include_any": ["mean"]}
+{"id": "extension", "question": "Can I get a 3 day extension on homework 2? I've been sick.", "expect": "escalate", "reason": "policy"}
+{"id": "exam-topics", "question": "What topics will be on the final exam?", "expect": "escalate", "reason": "policy"}
+{"id": "regrade", "question": "I think question 4 on my midterm was graded wrong. Can you fix my grade?", "expect": "escalate", "reason": "policy"}
+{"id": "transformers", "question": "How does self-attention work in transformers?", "expect": "escalate", "reason": "not_in_notes"}
+{"id": "svm", "question": "How does a support vector machine choose its margin?", "expect": "escalate", "reason": "not_in_notes"}
+{"id": "human", "question": "Can I talk to a real person instead of a bot?", "expect": "escalate", "reason": "student_request"}
